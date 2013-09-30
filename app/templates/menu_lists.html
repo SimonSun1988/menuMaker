@@ -1,0 +1,64 @@
+{% extends "topbar_footer.html" %}
+{% block body %}
+    <div class="container lists-content">
+        <div class="container">
+            <div class="span12">
+<!--
+                <button class="btn btn-large btn-block btn-primary" type="button" onClick="location.href='/add_lists'"><h4><blink><font color="#00ffB4">增</font><font color="#00ffff">加</font><font color="#00B4ff">菜</font><font color="#FF0000">單</font></h4></button>
+-->
+                <button class="btn btn-large btn-block btn-primary" type="button" onClick="location.href='/add_lists'">增加菜單</h4></button>
+            </div>
+        </div>
+<!--
+        <marquee><h4><img src="static/img/spinningearth.gif" width="26">&nbsp;&nbsp;安安我是個跑馬燈燈燈燈燈燈燈燈燈燈燈燈燈燈燈燈燈燈燈</h4></marquee>
+-->
+        <div class="span12 menulists_block">
+            <table class="table table-striped">
+                <div><h1 style="text-align:center;">菜單名稱</h1></div>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                    {% for menu_name in menu_names %}
+                    <tbody class="menu_name" data-name="{{ menu_name }}">                        
+                        <tr>                                
+                            <td><h1>{{ menu_name }}</h1></td> 
+                            <td>
+                                <form class="form-inline" action="/print_menu" method="post">                          
+                                    <input name="inputMenuName" type="hidden" value="{{ menu_name }}">
+                                    <button class="btn btn-primary" type="submit">列印菜單</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form class="form-inline" action="/menuDel" method="post">                          
+                                    <input name="menuDel" type="hidden" value="{{ menu_name }}">
+                                    <button class="btn btn-danger" type="submit">刪除菜單</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form class="form-inline" action="/menuEdit" method="post">                          
+                                    <input name="menuEdit" type="hidden" value="{{ menu_name }}">
+                                    <button class="btn btn-danger" type="submit">編輯菜單</button>
+                                </form>
+                            </td>
+                        </tr>                    
+                    </tbody>
+                    {%  endfor %}
+            </table>
+        </div>
+<!--
+        <center>
+          <img src="static/img/mchammer.gif">&nbsp;&nbsp;
+          <img src="static/img/mchammer.gif">&nbsp;&nbsp;
+          <img src="static/img/mchammer.gif">
+        </center>
+-->
+    </div>
+{%  endblock %}
+
+
+

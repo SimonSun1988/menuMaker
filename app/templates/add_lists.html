@@ -1,0 +1,86 @@
+{% extends "topbar_footer.html" %}
+{% block body %}
+	<div class="container menu-content">
+		<div class="span12">
+			<div class="span5 getDishes">
+				<p><h3 class="text-center">現有餐點資料</h1></p>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>分類</th>
+							<th>菜名</th>
+							<th>價格</th>
+						</tr>
+					</thead>
+                    {% for item in items %}
+                        <tbody class="item" data-dish="{{ item.dish }}" data-name="{{ item.name }}" data-price="{{ item.price }}">
+                            <tr>
+                                <td class="dish"  data-name="{{ item.name }}">{{ item.dish }}</td>
+                                <td class="name"  data-name="{{ item.name }}">{{ item.name }}</td>
+                                <td class="price"  data-name="{{ item.name }}">{{ item.price }}</td>
+                            </tr>
+                        </tbody>
+					{% endfor %}
+				</table>
+			</div>
+			
+			<div class="span1">
+				<button class="btn btn-large btn-primary listsAdd" type="button">></button>
+				<button class="btn btn-large btn-danger listsDel" type="button"><</button>
+			</div>
+			
+			<div class="span5 makeMenu">
+				<p><h3 class="text-center">我要製作的菜單</h1></p>
+				<table class="table table-striped check">
+					<thead>
+						<tr>
+							<th>分類</th>
+							<th>菜名</th>
+							<th>價格</th>
+						</tr>
+					</thead>
+                    {% for item in getDishes %}
+                        <tbody class="item" data-dish="{{ item.dish }}" data-name="{{ item.name }}" data-price="{{ item.price }}" data-choice="true">
+                            <tr>
+                                <td class="dish">{{ item.dish }}</td>
+                                <td class="name">{{ item.name }}</td>
+                                <td class="price">{{ item.price }}</td>
+                            </tr>
+                        </tbody>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+        
+        <div class="span12">
+            
+            {% if menuName %}
+            <form class="form-inline menu_items span5" action="/dbUpdate" method="post">
+                <h3>{{ menuName }}</h3>                          
+                <input name="menuname" type="hidden" value="{{ menuName }}">
+                {% for item in getDishes %}
+                <input name="dish" type="hidden" data-name="{{ item.name}}" value="{{ item.dish }}">
+                <input name="name" type="hidden" data-name="{{ item.name}}" value="{{ item.name }}">
+                <input name="price" type="hidden" data-name="{{ item.name}}" value="{{ item.price }}">
+                {% endfor %}
+                <button class="btn btn-danger menuEdit" type="submit">修改菜單</button>
+            </form>
+            {% else %}
+            <form class="form-inline menu_items span5" action="/add_lists" method="post">
+                {{ form.hidden_tag() }}
+                <h3 class="giveMenuname">您的菜單要叫作：</h3>
+                {{ form.giveMenuname(class_="span4 giveMenuname") }}                
+                <button class="btn btn-primary giveMenuname" type="submit">增加此菜單</button>
+                {% if form.errors['giveMenuname'] %}
+                <p class="error-msg"><i class="icon-exclamation-sign"></i>請輸入您的美位佳餚大名,但不要超過30個字唷</p>
+                {% endif %}
+                {% if menuAdd_msg %}
+                <p class="error-msg"><i class="icon-exclamation-sign"></i>菜單的名字有重複唷，請重新輸入</p>
+                {% endif %}
+            </form>
+            {% endif %}
+        </div>
+    </div>
+	
+    </div>
+{% endblock %}

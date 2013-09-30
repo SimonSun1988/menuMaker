@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+
+
+ {{ '{% block test %}
+   <h1>This is Test</h1>
+ {% endblock %}' }}
+
+ {% raw %}
+ {% block test %}
+   <h1>This is Test</h1>
+ {% endblock %}
+ {% endraw %}

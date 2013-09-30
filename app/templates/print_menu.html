@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <script type="text/JavaScript" src="static/js/jquery-1.9.1.js"></script>
+        <script type="text/JavaScript" src="static/js/bootstrap.js"></script>
+        <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="static/css/bootstrap-responsive.css">
+        <link rel="stylesheet" type="text/css" href="static/css/module.css">
+        <link rel="stylesheet/less" type="text/css" href="static/css/variables.less">
+        <link rel="stylesheet/less" type="text/css" href="static/css/bootswatch.less">
+        <script type="text/JavaScript" src="static/js/menu_lists.js"></script>
+    </head>
+    
+    <body> 
+        <div class="container print-content">
+            <h1 style="text-align: center;">{{ menuName }}菜單</h1>
+            <table class="table table-striped">
+                <thead class="print-ver">
+                    <th class="print-ver">分類</th>
+                    <th class="print-ver">餐點</th>
+                    <th class="print-ver">價格</th>
+                </thead>
+                {% for dish in dishes %}
+                <tbody>
+                    <tr>
+                        <td class="print-ver">{{ dish.dish }}</td>
+                        <td class="print-ver">{{ dish.name }}</td>
+                        <td class="print-ver">{{ dish.price }}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+<!--
+                <thead class="print-ver">
+                    <th></th>
+                    <th><h2>總金額</h2></th>
+                    <th><h2>{{ price }}</h2></th>
+                </thead>
+-->
+            </table>
+        </div>
+    </body>
+</html>

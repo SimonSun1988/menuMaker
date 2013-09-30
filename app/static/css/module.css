@@ -1,0 +1,60 @@
+.index-content, .dish-content, .menu-content, .lists-content, .print-content {
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+.alert_style{
+    border : solid 2px grey;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    height:500px;
+    overflow: auto;
+}
+
+.giveMenuname {
+    margin-top:50px;
+}
+
+.menulists_block {
+    border : solid 2px grey;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    height:600px;
+    overflow: auto;
+}
+
+.getDishes, .makeMenu {
+    border : solid 2px grey;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    height:500px;
+    overflow: auto;
+}
+
+.listsAdd {
+    margin: 120px 5px 80px 5px;
+}
+
+.listsDel {
+    margin: 80px 5px 120px 5px;
+}
+
+.footer {
+    width: 100%;
+    height: 50px;
+}
+
+.footer-info {
+    text-align: center;
+}
+
+.error-msg {
+    color: red;
+}
+
+.print-ver {
+    border: solid 1px black;
+}

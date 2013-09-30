@@ -1,0 +1,20 @@
+Unicode:
+    - Unicode對世界上大部分的文字進行編碼，使電腦能夠更簡化的來呈現文字。
+    - Unicode涵蓋的資料除了視覺上的字形、編碼方法、標準的字元編碼外，還包含了字元特性，如大小寫字母。
+    - 表示一個Unicode的字元時，通常會用「U+」然後緊接著一組十六進位的數字來表示這一個字元。
+    - 使用16位的編碼空間。也就是每個字元佔用2個位元組。這樣理論上一共最多可以表示216（即65536）個字元。
+    http://zh.wikipedia.org/wiki/Unicode
+    
+
+UTF-8:(8-bit Unicode Transformation Format)
+    - UTF-8是由Unicode改良來的，一個是固定存2 bytes，另一個是變動長度
+    - UTF-8 and Unicode cannot be compared. UTF-8 is an encoding used to translate binary data into numbers. 
+      Unicode is a character set used to translate numbers into characters.
+      http://zh.wikipedia.org/wiki/UTF-8
+    - UTF-8和Unicode是不一樣的。UTF-8是用來轉換 binary data 變成數字編號。Unicode是一種字符集合，用來把數字編號轉換成字元
+
+http://netlab.cse.yzu.edu.tw/~statue/freebsd/hanzi/UTF-8-Unicode.html
+http://rrn.dk/the-difference-between-utf-8-and-unicode
+http://blog.wahahajk.com/2009/08/unicodedecodeerror-ascii-codec-cant.html
+http://blog.yam.com/white5168/article/47484267
+http://binlust.blogspot.tw/2009/08/python-string-encode-and-decode.html

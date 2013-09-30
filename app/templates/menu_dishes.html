@@ -1,0 +1,61 @@
+0{% extends "topbar_footer.html" %}
+{% block body %}
+<div class="container dish-content">
+    <div class="span12 choice_style">
+        {% from "_formhelpers.html" import render_field %}
+        <form class="form-inline" action="" method="post" name="test">
+            {{ form.hidden_tag() }}
+            <h6>種類：</h6>
+            {{ form.dish(class_="span6") }}
+            {% if form.errors['dish'] %}
+            <p class="error-msg"><i class="icon-exclamation-sign"></i>欄位不能為空，輸入長度要介於1~30個字之間</p>
+            {% endif %}
+            
+            <h6>菜名：</h6>
+            {{ form.name(class_="span6") }}
+            {% if form.errors['name'] %}
+            <p class="error-msg"><i class="icon-exclamation-sign"></i>欄位不能為空，輸入長度要介於1~30個字之間</p>
+            {% endif %}
+            {% if dishAdd_msg %}
+            <p class="error-msg"><i class="icon-exclamation-sign"></i>菜名不能一樣唷</p>
+            {% endif %}
+            
+            <h6>價格：</h6>
+            {{ form.price(class_="span5") }}
+            <button class="btn btn-primary" type="submit">新增/修改</button>
+            {% if form.errors['price'] %}
+            <p class="error-msg"><i class="icon-exclamation-sign"></i>欄位不能為空，且必須輸入少於八位數的正整數</p>
+            {% endif %}
+        </form>
+    </div>
+    
+    <div class="span12 alert_style">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>分類</th>
+                    <th>菜名</th>
+                    <th>價格</th>
+                    <th></th>
+                </tr>
+            </thead>
+            {% for item in items %}
+            <tbody data-dish="{{ item.dish }}" data-name="{{ item.name }}" data-price="{{ item.price }}" >
+                <tr>
+                    <td>{{ item.dish }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>
+                        <form class="form-inline" action="/delDish" method="post">
+                            <input type="hidden" name="delDish" value="{{ item.name }}">                            
+                            <button class="btn btn-danger">刪除</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
+

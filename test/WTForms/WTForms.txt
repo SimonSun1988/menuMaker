@@ -1,0 +1,14 @@
+1. 什麼是csrf?
+    -
+2. app.config.from_object('config')?
+    - 我去引用config.py檔
+3. form.hidden_tag()?
+    -  
+4. @app.route()，為什麼要用@(decorator )
+    -
+5. app = Flask(__name__)?
+    - 把name當作modual來執行
+6. form.py內的 price = TextField('price',validators = [Required()])？
+    - validators就是必須設定一些規則，像是Required()就是欄位內不能為空，還可以設定字串長度等等....
+7. 如何把classname利用wtform傳到html
+    - {{ form.name(class_="name") }}，這樣就會出現有一個class叫作name的form表單欄位
